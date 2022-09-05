@@ -27,7 +27,7 @@ const Movies = () => {
     fetchSearchMovies({ query: searchQuery, page })
       .then(response => response.data)
       .then(results => {
-        console.log(results);
+        console.log([results]);
       })
       .catch(error => {
         console.log('New error in Movies:(');

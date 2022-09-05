@@ -14,8 +14,6 @@ const Home = () => {
     .finally(() => {})
   }, [])
 
-  console.log(trending);
-
   return (
     <>
     <h1>Trending</h1>
