@@ -1,16 +1,26 @@
-export const App = () => {
+import { Routes, Route } from "react-router-dom";
+import { ToastContainer } from 'react-toastify'
+
+import Home from './Home/Home'
+import Movies from './Movies/Movies'
+// import NotFound from "path/to/pages/NotFound";
+
+
+
+
+
+const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
+    <div>
+      <Home/>
+      <Movies/>
+      {/* <Routes> */}
+        {/* <Route path="*" element={<NotFound />} /> */}
+      {/* </Routes> */}
+      <ToastContainer autoClose={5000} />
     </div>
   );
 };
+
+
+export default App
