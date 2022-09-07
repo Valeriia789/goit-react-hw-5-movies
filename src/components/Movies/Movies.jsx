@@ -40,7 +40,7 @@ const Movies = () => {
   //   movie.title.toLowerCase().includes(filterParam.toLowerCase())
   // );
 
-  console.log(visibleMovies);
+  // console.log(visibleMovies);
 
   return (
     <>
