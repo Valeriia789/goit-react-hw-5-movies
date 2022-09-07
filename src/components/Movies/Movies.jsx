@@ -31,6 +31,10 @@ const Movies = () => {
   const visibleMovies = movies.filter(movie =>
     movie.title.toLowerCase().includes(filter.toLowerCase())
   );
+  
+  // const visibleMovies = movies.filter(movie =>
+  //   movie.title.toLowerCase().includes(filter.toLowerCase())
+  // );
 
   return (
     <>
