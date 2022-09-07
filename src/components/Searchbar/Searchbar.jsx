@@ -1,10 +1,10 @@
-const Searchbar = ({ onChange }) => {
+const Searchbar = ({ value, onChange }) => {
   return (
     <>
       <input
-        name="searchQuery"
-        onChange={e => onChange(e.target.value)}
         type="text"
+        value={value}
+        onChange={e => onChange(e.target.value)}
         autoComplete="off"
         autoFocus
         placeholder="Search movies"
