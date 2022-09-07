@@ -41,6 +41,7 @@ const Movies = () => {
   // );
 
   // console.log(visibleMovies);
+  console.log(visibleMovies);
 
   return (
     <>
