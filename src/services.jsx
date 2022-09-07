@@ -12,10 +12,10 @@ const fetchTrending = () => {
     )
 }
 
-const fetchSearchMovies = ( query, page ) => {
+const fetchSearchMovies = ( ) => {
   return axios
     .get(
-      `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=${page}&include_adult=false`
+      `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&query=home&page=1&include_adult=false`
     )
 }
 
