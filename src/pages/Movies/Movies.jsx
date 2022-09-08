@@ -4,7 +4,8 @@ import { useSearchParams } from 'react-router-dom';
 // import { toast } from 'react-toastify';
 
 import { fetchSearchMovies } from '../../services';
-import Searchbar from '../Searchbar/Searchbar';
+import Searchbar from '../../components/Searchbar/Searchbar';
+import { Link } from 'react-router-dom';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -19,6 +20,7 @@ const Movies = () => {
 
   useEffect(() => {
     if (filterParam === '') {
+      setMovies([]);
       return;
     }
 
@@ -41,10 +43,6 @@ const Movies = () => {
     );
   }, [filterParam, movies]);
 
-  // const visibleMovies = movies.filter(movie =>
-  //   movie.title.toLowerCase().includes(filterParam.toLowerCase())
-  // );
-
   return (
     <>
       <h2>Search</h2>
@@ -53,7 +51,9 @@ const Movies = () => {
       {visibleMovies.length > 0 && (
         <ul>
           {movies.map(movie => (
-            <li key={movie.id}>{movie.title}</li>
+            <li key={movie.id}>
+              <Link to={`${movie.id}`}>{movie.title}</Link>
+            </li>
           ))}
         </ul>
       )}
