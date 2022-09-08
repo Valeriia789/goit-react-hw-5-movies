@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 
 import { fetchSearchMovies } from '../../services';
 import Searchbar from '../Searchbar/Searchbar';
@@ -9,7 +9,7 @@ import Searchbar from '../Searchbar/Searchbar';
 const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
-  const [page, setPage] = useState(1);
+  // const [page, setPage] = useState(1);
 
   const changeFilter = value => {
     setSearchParams(value !== '' ? { filter: value } : {});
