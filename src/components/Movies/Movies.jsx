@@ -11,28 +11,33 @@ const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [page, setPage] = useState(1);
 
+  const changeFilter = value => {
+    setSearchParams(value !== '' ? { filter: value } : {});
+  };
+
   const filterParam = searchParams.get('filter') ?? '';
 
   useEffect(() => {
-    fetchSearchMovies()
-      .then(response => [response.data])
-      .then(results => {
+    if (filterParam === '') {
+      return;
+    }
+
+    fetchSearchMovies({ query: filterParam })
+      .then(response => response.data)
+      .then(({ results }) => {
         setMovies([...results]);
       })
       .catch(error => {
         console.log('New error in Movies:(');
       })
       .finally(() => {});
-  }, []);
-
-  const changeFilter = value => {
-    setSearchParams(value !== '' ? { filter: value } : {});
-  };
+  }, [filterParam]);
 
   const visibleMovies = useMemo(() => {
-    console.log(movies);
-    return movies.filter(movie => movie.hasOwnProperty('title') && 
-      movie.title.toLowerCase().includes(filterParam.toLowerCase())
+    return movies.filter(
+      movie =>
+        movie.hasOwnProperty('title') &&
+        movie.title.toLowerCase().includes(filterParam.toLowerCase())
     );
   }, [filterParam, movies]);
 
@@ -40,20 +45,14 @@ const Movies = () => {
   //   movie.title.toLowerCase().includes(filterParam.toLowerCase())
   // );
 
-  // console.log(visibleMovies);
-  console.log(visibleMovies);
-
   return (
     <>
       <h2>Search</h2>
-      <button type="submit">
-        <span>Search</span>
-      </button>
 
       <Searchbar value={filterParam} onChange={changeFilter} />
       {visibleMovies.length > 0 && (
         <ul>
-          {visibleMovies.map(movie => (
+          {movies.map(movie => (
             <li key={movie.id}>{movie.title}</li>
           ))}
         </ul>
