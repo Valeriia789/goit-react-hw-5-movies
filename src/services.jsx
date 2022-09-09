@@ -14,16 +14,11 @@ const fetchSearchMovies = ({ query }) => {
   );
 };
 
-const fetchMovieDetails = movieId => {
-  return axios
+const fetchMovieDetails = async (movieId) => {
+  return await axios
     .get(
-      `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US`
+      `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&language=en-US`
     )
-    .then(response => response.data)
-    .then(result => {
-      console.log(result);
-      return result;
-    });
 };
 
 export { fetchTrending, fetchSearchMovies, fetchMovieDetails };

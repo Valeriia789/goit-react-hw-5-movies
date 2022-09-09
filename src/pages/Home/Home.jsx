@@ -1,3 +1,4 @@
+import { Outlet } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { fetchTrending } from '../../services';
 
@@ -17,7 +18,7 @@ const Home = () => {
   }, []);
 
   return (
-    <>
+    <div>
       <h1>Trending</h1>
       <ul>
         {trending &&
@@ -25,7 +26,8 @@ const Home = () => {
             <li key={trendItem.id}>{trendItem.name || trendItem.title}</li>
           ))}
       </ul>
-    </>
+      <Outlet/>
+    </div>
   );
 };
 
