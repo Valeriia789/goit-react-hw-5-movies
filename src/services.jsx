@@ -14,11 +14,10 @@ const fetchSearchMovies = ({ query }) => {
   );
 };
 
-const fetchMovieDetails = async (movieId) => {
-  return await axios
-    .get(
-      `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&language=en-US`
-    )
+const fetchMovieDetails = async movieId => {
+  return await axios.get(
+    `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&language=en-US`
+  );
 };
 
 export { fetchTrending, fetchSearchMovies, fetchMovieDetails };

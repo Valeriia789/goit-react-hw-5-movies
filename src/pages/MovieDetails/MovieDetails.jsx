@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Link, Outlet } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 import { fetchMovieDetails } from '../../services';
@@ -24,7 +24,7 @@ const MovieDetails = () => {
     movie;
 
   return (
-    <>
+    <main>
       <div>
         movieId {movieId} id {id}
       </div>
@@ -50,10 +50,11 @@ const MovieDetails = () => {
       </div>
       <div>
         <h4>Additional information</h4>
-        <p>Cast</p>
-        <p>Reviews</p>
+        <Link to="cast">Cast</Link>
+        <Link to="reviews">Reviews</Link>
+        <Outlet />
       </div>
-    </>
+    </main>
   );
 };
 
