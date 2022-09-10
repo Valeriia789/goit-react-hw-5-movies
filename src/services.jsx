@@ -20,4 +20,10 @@ const fetchMovieDetails = async movieId => {
   );
 };
 
-export { fetchTrending, fetchSearchMovies, fetchMovieDetails };
+const fetchCast = (movieId) => {
+  return axios.get(
+    `${BASE_URL}/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`
+  )
+}
+
+export { fetchTrending, fetchSearchMovies, fetchMovieDetails, fetchCast };
