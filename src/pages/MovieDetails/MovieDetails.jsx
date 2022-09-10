@@ -35,7 +35,7 @@ const MovieDetails = () => {
 
       <div>
         <div>
-          <img src={poster} alt="poster should be here" />
+          {poster_path && <img src={poster} alt="poster should be here" />}
         </div>
 
         <div>
