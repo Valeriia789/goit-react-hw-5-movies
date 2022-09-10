@@ -26,4 +26,10 @@ const fetchCast = (movieId) => {
   )
 }
 
-export { fetchTrending, fetchSearchMovies, fetchMovieDetails, fetchCast };
+const fetchReviews = (movieId) => {
+  return axios.get(
+    `${BASE_URL}/movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US&page=1`
+  )
+}
+
+export { fetchTrending, fetchSearchMovies, fetchMovieDetails, fetchCast, fetchReviews };
