@@ -23,6 +23,7 @@ const MovieDetails = () => {
   const { id, title, poster_path, vote_average, vote_count, overview, genres } =
     movie;
 
+  const poster = `https://image.tmdb.org/t/p/w300${poster_path} `;
   return (
     <main>
       <div>
@@ -31,7 +32,7 @@ const MovieDetails = () => {
 
       <div>
         <div>
-          <img src={poster_path} alt="poster should be here" />
+          <img src={poster} alt="poster should be here" />
         </div>
 
         <div>
