@@ -20,16 +20,22 @@ const fetchMovieDetails = async movieId => {
   );
 };
 
-const fetchCast = (movieId) => {
+const fetchCast = movieId => {
   return axios.get(
     `${BASE_URL}/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`
-  )
-}
+  );
+};
 
-const fetchReviews = (movieId) => {
+const fetchReviews = movieId => {
   return axios.get(
     `${BASE_URL}/movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US&page=1`
-  )
-}
+  );
+};
 
-export { fetchTrending, fetchSearchMovies, fetchMovieDetails, fetchCast, fetchReviews };
+export {
+  fetchTrending,
+  fetchSearchMovies,
+  fetchMovieDetails,
+  fetchCast,
+  fetchReviews,
+};

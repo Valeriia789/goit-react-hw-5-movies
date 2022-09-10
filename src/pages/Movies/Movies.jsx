@@ -1,13 +1,13 @@
 import { useMemo } from 'react';
 import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, Link, useLocation } from 'react-router-dom';
 // import { toast } from 'react-toastify';
 
 import { fetchSearchMovies } from '../../services';
 import Searchbar from '../../components/Searchbar/Searchbar';
-import { Link } from 'react-router-dom';
 
 const Movies = () => {
+  const location = useLocation();
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   // const [page, setPage] = useState(1);
@@ -52,7 +52,9 @@ const Movies = () => {
         <ul>
           {movies.map(movie => (
             <li key={movie.id}>
-              <Link to={`${movie.id}`}>{movie.title}</Link>
+              <Link to={`${movie.id}`} state={{ from: location }}>
+                {movie.title}
+              </Link>
             </li>
           ))}
         </ul>
