@@ -23,7 +23,17 @@ const Cast = () => {
         <ul>
           {castInfo.map(cast => (
             <li key={cast.id}>
-              <img src={imageURL + cast.profile_path} alt="actorPicture" />
+              {cast.profile_path ? (
+                <img
+                  src={imageURL + cast.profile_path}
+                  alt={cast.original_name}
+                />
+              ) : (
+                <img
+                  src="https://static.toiimg.com/photo/imgsize-11375,msid-58105055/58105055.jpg"
+                  alt={cast.original_name}
+                />
+              )}
               <p>{cast.name}</p>
               {cast.character && <p>Character: {cast.character}</p>}
             </li>
