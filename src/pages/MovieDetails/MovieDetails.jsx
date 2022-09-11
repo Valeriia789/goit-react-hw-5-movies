@@ -51,8 +51,8 @@ const MovieDetails = ( ) => {
       </div>
       <div>
         <h4>Additional information</h4>
-        <NavLink to="cast" >Cast</NavLink>
-        <NavLink to="reviews" >Reviews</NavLink>
+        <NavLink to="cast" state={{ from: location.state.from }} >Cast</NavLink>
+        <NavLink to="reviews" state={{ from: location.state.from }} >Reviews</NavLink>
         <Suspense fallback={<div>Loading subpage...</div>}>
           <Outlet />
         </Suspense>
