@@ -7,11 +7,7 @@ const Reviews = () => {
   const [movieReviews, setMovieReviews] = useState([]);
 
   useEffect(() => {
-    fetchReviews(Number(movieId))
-      .then(response => response.data)
-      .then(({ results }) => {
-        setMovieReviews([...results]);
-      });
+    fetchReviews(Number(movieId)).then(setMovieReviews);
   }, [movieId]);
 
   console.log(movieReviews);

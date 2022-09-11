@@ -9,11 +9,8 @@ const MovieDetails = () => {
 
   useEffect(() => {
     fetchMovieDetails(Number(movieId))
-      .then(response => response.data)
-      .then(result => {
-        setMovie(result);
-      });
-  }, [movieId, setMovie]);
+      .then(setMovie);
+  }, [movieId]);
 
   if (!movie) {
     return null;

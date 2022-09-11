@@ -5,15 +5,7 @@ const Home = () => {
   const [trending, setTrending] = useState([]);
 
   useEffect(() => {
-    fetchTrending()
-      .then(response => response.data)
-      .then(({ results }) => {
-        setTrending([...results]);
-      })
-      .catch(error => {
-        console.log('New error:(');
-      })
-      .finally(() => {});
+    fetchTrending().then(setTrending);
   }, []);
 
   return (

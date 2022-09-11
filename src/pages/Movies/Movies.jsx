@@ -24,15 +24,7 @@ const Movies = () => {
       return;
     }
 
-    fetchSearchMovies({ query: filterParam })
-      .then(response => response.data)
-      .then(({ results }) => {
-        setMovies([...results]);
-      })
-      .catch(error => {
-        console.log('New error in Movies:(');
-      })
-      .finally(() => {});
+    fetchSearchMovies({ query: filterParam }).then(setMovies);
   }, [filterParam]);
 
   const visibleMovies = useMemo(() => {

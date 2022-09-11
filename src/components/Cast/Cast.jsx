@@ -8,14 +8,8 @@ const Cast = () => {
   const imageURL = 'https://image.tmdb.org/t/p/w300';
 
   useEffect(() => {
-    fetchCast(Number(movieId))
-      .then(response => response.data.cast)
-      .then(result => {
-        setCastInfo(result);
-      });
+    fetchCast(Number(movieId)).then(setCastInfo);
   }, [movieId]);
-
-  console.log(castInfo);
 
   return (
     <div>
