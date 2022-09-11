@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { useEffect, useState } from 'react';
-import { useSearchParams, Link, useLocation } from 'react-router-dom';
+import { useSearchParams, NavLink, useLocation } from 'react-router-dom';
 // import { toast } from 'react-toastify';
 
 import { fetchSearchMovies } from '../../services';
@@ -27,6 +27,10 @@ const Movies = () => {
     fetchSearchMovies({ query: filterParam }).then(setMovies);
   }, [filterParam]);
 
+  // console.log(location);
+  // console.log(location.search);
+  // console.log(filterParam);
+
   const visibleMovies = useMemo(() => {
     return movies.filter(
       movie =>
@@ -44,9 +48,9 @@ const Movies = () => {
         <ul>
           {movies.map(movie => (
             <li key={movie.id}>
-              <Link to={`${movie.id}`} state={{ from: location }}>
+              <NavLink to={`${movie.id}`} state={{ from: location }}>
                 {movie.title}
-              </Link>
+              </NavLink>
             </li>
           ))}
         </ul>

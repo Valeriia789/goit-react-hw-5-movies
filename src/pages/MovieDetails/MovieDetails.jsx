@@ -1,8 +1,8 @@
-import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
+import { useParams, Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import { useEffect, useState, Suspense } from 'react';
 import { fetchMovieDetails } from '../../services';
 
-const MovieDetails = () => {
+const MovieDetails = ( ) => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   const location = useLocation();
@@ -51,8 +51,8 @@ const MovieDetails = () => {
       </div>
       <div>
         <h4>Additional information</h4>
-        <Link to="cast">Cast</Link>
-        <Link to="reviews">Reviews</Link>
+        <NavLink to="cast" >Cast</NavLink>
+        <NavLink to="reviews" >Reviews</NavLink>
         <Suspense fallback={<div>Loading subpage...</div>}>
           <Outlet />
         </Suspense>
