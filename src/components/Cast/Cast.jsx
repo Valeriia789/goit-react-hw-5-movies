@@ -11,6 +11,7 @@ const Cast = () => {
     fetchCast(Number(movieId)).then(setCastInfo);
   }, [movieId]);
 
+  console.log(castInfo);
   return (
     <div>
       {castInfo.length > 0 && (

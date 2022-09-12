@@ -1,15 +1,27 @@
-import { useParams, Link, NavLink, Outlet, useLocation } from 'react-router-dom';
+import {
+  useParams,
+  Link,
+  NavLink,
+  Outlet,
+  useLocation,
+} from 'react-router-dom';
 import { useEffect, useState, Suspense } from 'react';
 import { fetchMovieDetails } from '../../services';
 
-const MovieDetails = ( ) => {
+import {
+  MainContainer,
+  BackContainer,
+  StyledLink,
+  CardContainer,
+} from './MovieDetails.styles';
+
+const MovieDetails = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   const location = useLocation();
 
   useEffect(() => {
-    fetchMovieDetails(Number(movieId))
-      .then(setMovie);
+    fetchMovieDetails(Number(movieId)).then(setMovie);
   }, [movieId]);
 
   if (!movie) {
@@ -22,13 +34,16 @@ const MovieDetails = ( ) => {
   const backLinkHref = location.state?.from ?? '/movies';
 
   return (
-    <main>
-      <div>
+    <MainContainer>
+      <BackContainer>
         {/* <Link to="/movies">Back to movies</Link>
       в to можна передавати не рядки, а об'єкт місцезнаходження: */}
-        <img src="https://img.icons8.com/nolan/32/return.png" alt="" />
-        <Link to={backLinkHref}>Back to movies</Link>
-      </div>
+
+        <StyledLink to={backLinkHref}>
+          <img src="https://img.icons8.com/nolan/32/return.png" alt="" />
+          GO BACK
+        </StyledLink>
+      </BackContainer>
 
       <div>
         <div>
@@ -51,13 +66,17 @@ const MovieDetails = ( ) => {
       </div>
       <div>
         <h4>Additional information</h4>
-        <NavLink to="cast" state={{ from: location.state.from }} >Cast</NavLink>
-        <NavLink to="reviews" state={{ from: location.state.from }} >Reviews</NavLink>
+        <NavLink to="cast" state={{ from: location.state.from }}>
+          Cast
+        </NavLink>
+        <NavLink to="reviews" state={{ from: location.state.from }}>
+          Reviews
+        </NavLink>
         <Suspense fallback={<div>Loading subpage...</div>}>
           <Outlet />
         </Suspense>
       </div>
-    </main>
+    </MainContainer>
   );
 };
 
