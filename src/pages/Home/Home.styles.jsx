@@ -28,10 +28,11 @@ const MovieLink = styled(NavLink)`
   justify-content: center;
   padding: 5px 15px 15px 15px;
 
-  font-size: ${props => props.theme.fontSizes[5]}px;
-  font-weight: ${props => props.theme.fontWeights.bold};
+  text-transform: uppercase;
+  font-size: ${props => props.theme.fontSizes[3]}px;
+  font-weight: ${props => props.theme.fontWeights.heading};
 
-  color: ${props => props.theme.colors.background};
+  /* color: ${props => props.theme.colors.background}; */
   text-shadow: ${props => props.theme.shadows.textSecondary};
 `;
 
