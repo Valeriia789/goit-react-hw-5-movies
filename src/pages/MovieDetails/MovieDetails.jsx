@@ -10,9 +10,15 @@ import { fetchMovieDetails } from '../../services';
 
 import {
   MainContainer,
-  BackContainer,
-  StyledLink,
+  LinkContainer,
+  LinkButton,
   CardContainer,
+  PosterContainer,
+  InfoContainer,
+  MovieTitle,
+  StatTitle,
+  StatInfo,
+  MoreInfoContainer,
 } from './MovieDetails.styles';
 
 const MovieDetails = () => {
@@ -35,47 +41,64 @@ const MovieDetails = () => {
 
   return (
     <MainContainer>
-      <BackContainer>
+      <LinkContainer>
         {/* <Link to="/movies">Back to movies</Link>
       в to можна передавати не рядки, а об'єкт місцезнаходження: */}
 
-        <StyledLink to={backLinkHref}>
+        <LinkButton to={backLinkHref}>
           <img src="https://img.icons8.com/nolan/32/return.png" alt="" />
           GO BACK
-        </StyledLink>
-      </BackContainer>
+        </LinkButton>
+      </LinkContainer>
 
-      <div>
-        <div>
+      <CardContainer>
+        <PosterContainer>
           {poster_path && <img src={poster} alt="poster should be here" />}
-        </div>
+        </PosterContainer>
 
-        <div>
-          <h3>{title}</h3>
-          <p>Rating: {vote_average}</p>
-          <p>Votes: {vote_count}</p>
+        <InfoContainer>
+          <MovieTitle>{title}</MovieTitle>
+          <StatTitle>
+            Rating:
+            <StatInfo> {vote_average} </StatInfo>{' '}
+          </StatTitle>
+          <StatTitle>
+            Votes:
+            <StatInfo> {vote_count} </StatInfo>
+          </StatTitle>
 
-          <h4>Overview</h4>
-          <p>{overview}</p>
-
-          <h4>Genres</h4>
+          <StatTitle>Genres: </StatTitle>
           {genres.map(genre => (
-            <p key={genre.id}>{genre.name}</p>
+            <StatInfo key={genre.id}> {genre.name}, </StatInfo>
           ))}
-        </div>
-      </div>
-      <div>
-        <h4>Additional information</h4>
-        <NavLink to="cast" state={{ from: location.state.from }}>
-          Cast
-        </NavLink>
-        <NavLink to="reviews" state={{ from: location.state.from }}>
-          Reviews
-        </NavLink>
-        <Suspense fallback={<div>Loading subpage...</div>}>
-          <Outlet />
-        </Suspense>
-      </div>
+          <StatTitle>Overview: </StatTitle>
+          <StatInfo>{overview}</StatInfo>
+
+          <MoreInfoContainer>
+            <StatTitle>More information:</StatTitle>
+            <LinkContainer>
+              <LinkButton to="cast" state={{ from: location.state.from }}>
+                <img
+                  src="https://img.icons8.com/nolan/32/theatre-mask.png"
+                  alt=""
+                />
+                CAST
+              </LinkButton>
+              <LinkButton to="reviews" state={{ from: location.state.from }}>
+                <img
+                  src="https://img.icons8.com/nolan/32/video-message.png"
+                  alt=""
+                />
+                REVIEWS
+              </LinkButton>
+            </LinkContainer>
+          </MoreInfoContainer>
+        </InfoContainer>
+      </CardContainer>
+
+      <Suspense fallback={<div>Loading subpage...</div>}>
+        <Outlet />
+      </Suspense>
     </MainContainer>
   );
 };

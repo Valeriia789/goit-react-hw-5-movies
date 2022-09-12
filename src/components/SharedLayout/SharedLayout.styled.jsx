@@ -18,14 +18,17 @@ const ListItem = styled.li`
   padding: 5px;
 
   font-weight: ${props => props.theme.fontWeights.heading};
-  font-size: ${props => props.theme.fontSizes[3]}px;
+  font-size: ${props => props.theme.fontSizes[4]}px;
 `;
 
 const StyledNavLink = styled(NavLink)`
   color: ${props => props.theme.colors.text};
+  text-shadow: ${props => props.theme.shadows.text};
 
   &:hover {
-    text-shadow: ${props => props.theme.shadows.text};
+    background-color: ${props => props.theme.colors.blueOpacity};
+    box-shadow: ${props => props.theme.shadows.blue};
+    border-radius: 5px;
   }
 `;
 
