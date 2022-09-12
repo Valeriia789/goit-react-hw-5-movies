@@ -23,6 +23,7 @@ export const theme = {
   fontSizes: [12, 14, 16, 18, 20, 22, 24, 32, 48, 64, 72],
   fontWeights: {
     body: 400,
+    bold: 600,
     heading: 700,
     display: 900,
   },
@@ -33,6 +34,7 @@ export const theme = {
 
   shadows: {
     text: '1px 1px 2px black, 1px 1px 2px black',
+    textSecondary: '1px 1px 1px lightgrey, 1px 1px 1px lightgrey',
     light: 'rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px',
     pink: ' 1px 1px 40px 10px rgba(187,153,255,0.5);',
     blue: '1px 1px 40px 10px rgba(102,153,204,0.8);',

@@ -1,10 +1,4 @@
-import {
-  useParams,
-  Link,
-  NavLink,
-  Outlet,
-  useLocation,
-} from 'react-router-dom';
+import { useParams, Outlet, useLocation } from 'react-router-dom';
 import { useEffect, useState, Suspense } from 'react';
 import { fetchMovieDetails } from '../../services';
 

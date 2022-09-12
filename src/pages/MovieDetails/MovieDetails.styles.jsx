@@ -41,6 +41,10 @@ const CardContainer = styled.div`
 
 const PosterContainer = styled.div`
   padding: 10px;
+
+  img {
+    border-radius: 10px;
+  }
 `;
 
 const InfoContainer = styled.div`
