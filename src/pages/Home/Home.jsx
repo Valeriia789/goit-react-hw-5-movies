@@ -25,14 +25,15 @@ const Home = () => {
         {trending &&
           trending.map(trendItem => (
             <ListItem key={trendItem.id}>
-              {trendItem.poster_path && (
-                <img src={imageURL + trendItem.poster_path} alt="Poster" />
-              )}
-
               <MovieLink
                 to={`movies/${trendItem.id}`}
                 state={{ from: location }}
               >
+                
+                {trendItem.poster_path && (
+                  <img src={imageURL + trendItem.poster_path} alt="Poster" />
+                )}
+
                 {trendItem.name || trendItem.title}
               </MovieLink>
             </ListItem>
