@@ -25,6 +25,8 @@ const StyledNavLink = styled(NavLink)`
   color: ${props => props.theme.colors.text};
   text-shadow: ${props => props.theme.shadows.text};
 
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
   &:hover {
     background-color: ${props => props.theme.colors.blueOpacity};
     box-shadow: ${props => props.theme.shadows.blue};

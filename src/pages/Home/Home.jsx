@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { fetchTrending } from '../../services';
 
 import {
-  TrendingContainer,
-  TrendingList,
+  ListContainer,
+  MoviesList,
   ListItem,
   MovieLink,
-} from './Home.styles';
+  NoImageAvlb,
+  MovTitle,
+} from '../commonStyles';
 
 const Home = () => {
   const location = useLocation();
@@ -19,9 +21,9 @@ const Home = () => {
   }, []);
 
   return (
-    <TrendingContainer>
+    <ListContainer>
       <h1>Trending</h1>
-      <TrendingList>
+      <MoviesList>
         {trending &&
           trending.map(trendItem => (
             <ListItem key={trendItem.id}>
@@ -29,17 +31,21 @@ const Home = () => {
                 to={`movies/${trendItem.id}`}
                 state={{ from: location }}
               >
-                
-                {trendItem.poster_path && (
+                {trendItem.poster_path ? (
                   <img src={imageURL + trendItem.poster_path} alt="Poster" />
+                ) : (
+                  <NoImageAvlb
+                    src="https://bpgroup.lv/i/product_images/images/Z2000128443.jpg"
+                    alt="No Poster Available"
+                  />
                 )}
 
-                {trendItem.name || trendItem.title}
+                <MovTitle>{trendItem.name || trendItem.title}</MovTitle>
               </MovieLink>
             </ListItem>
           ))}
-      </TrendingList>
-    </TrendingContainer>
+      </MoviesList>
+    </ListContainer>
   );
 };
 

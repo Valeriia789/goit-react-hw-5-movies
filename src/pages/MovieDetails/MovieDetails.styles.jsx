@@ -8,7 +8,7 @@ const MainContainer = styled.main`
 
 const LinkContainer = styled.div`
   max-width: 150px;
-  /* margin-left: auto; */
+  margin-left: auto;
   border-radius: 5px;
 `;
 
@@ -26,6 +26,8 @@ const LinkButton = styled(Link)`
   box-shadow: ${props => props.theme.shadows.pink};
   color: ${props => props.theme.colors.text};
 
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
   &:hover {
     background-color: ${props => props.theme.colors.highlight};
     box-shadow: ${props => props.theme.shadows.blue};
@@ -37,6 +39,7 @@ const CardContainer = styled.div`
   display: flex;
   max-width: 1024px;
   padding: 10px;
+  text-align: justify;
 `;
 
 const PosterContainer = styled.div`
@@ -67,9 +70,8 @@ const StatTitle = styled.p`
 
 const StatInfo = styled.span`
   font-size: ${props => props.theme.fontSizes[3]}px;
-  font-weight: ${props => props.theme.fontWeights.body};
-  color: ${props => props.theme.colors.text};
-  text-shadow: ${props => props.theme.shadows.text};
+  font-weight: ${props => props.theme.fontWeights.heading};
+  color: ${props => props.theme.colors.secondary};
 `;
 
 const MoreInfoContainer = styled.div`
