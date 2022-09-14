@@ -8,7 +8,6 @@ const MainContainer = styled.main`
 
 const LinkContainer = styled.div`
   max-width: 150px;
-  margin-left: auto;
   border-radius: 5px;
 `;
 
