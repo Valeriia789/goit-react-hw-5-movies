@@ -49,8 +49,6 @@ const Movies = () => {
 
   return (
     <ListContainer>
-      <h2>Search</h2>
-
       <Searchbar value={filterParam} onChange={changeFilter} />
       {visibleMovies.length > 0 && (
         <MoviesList>
