@@ -30,7 +30,7 @@ const MovieDetails = () => {
 
   const { title, poster_path, vote_average, vote_count, overview, genres } =
     movie;
-  const poster = `https://image.tmdb.org/t/p/w300${poster_path} `;
+  const poster = `https://image.tmdb.org/t/p/w300${poster_path}`;
   const backLinkHref = location.state?.from ?? '/movies';
 
   return (

@@ -19,8 +19,6 @@ const Reviews = () => {
     fetchReviews(Number(movieId)).then(setMovieReviews);
   }, [movieId]);
 
-  console.log(movieReviews);
-
   return (
     <RewContainer>
       {movieReviews.length === 0 && <p>No reviews</p>}

@@ -23,8 +23,6 @@ const Home = () => {
     fetchTrending(page).then(setTrending);
   }, [page]);
 
-  console.log(page);
-
   return (
     <ListContainer>
       <h1>Trending</h1>
