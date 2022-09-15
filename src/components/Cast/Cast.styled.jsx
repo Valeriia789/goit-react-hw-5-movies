@@ -43,8 +43,14 @@ const ItemInfoContainer = styled.div`
   padding: 10px;
 `;
 
-const Character = styled.p`
+const CharacterContainer = styled.div`
   color: ${props => props.theme.colors.blue};
 `;
 
-export { CastContainer, CastList, ListItem, ItemInfoContainer, Character };
+export {
+  CastContainer,
+  CastList,
+  ListItem,
+  ItemInfoContainer,
+  CharacterContainer,
+};

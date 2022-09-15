@@ -5,7 +5,7 @@ import { useSearchParams, useLocation } from 'react-router-dom';
 
 import { fetchSearchMovies } from '../../services';
 import Searchbar from '../../components/Searchbar/Searchbar';
-// import Pagination from 'components/Pagination/Pagination';
+import Pagination from 'components/Pagination/Pagination';
 
 import {
   ListContainer,
@@ -20,7 +20,9 @@ const Movies = () => {
   const location = useLocation();
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
+  const [limit] = useState(10);
   const [page, setPage] = useState(1);
+  const offset = (page - 1) * limit;
 
   const imageURL = 'https://image.tmdb.org/t/p/w185';
 
@@ -54,7 +56,7 @@ const Movies = () => {
       <Searchbar value={filterParam} onChange={changeFilter} />
       {visibleMovies.length > 0 && (
         <MoviesList>
-          {movies.map(movie => (
+          {movies.slice(offset, offset + limit).map(movie => (
             <ListItem key={movie.id}>
               <MovieLink to={`${movie.id}`} state={{ from: location }}>
                 {movie.poster_path ? (
@@ -70,11 +72,17 @@ const Movies = () => {
               </MovieLink>
             </ListItem>
           ))}
-
         </MoviesList>
       )}
-      
-      {/* <Pagination/> */}
+
+      {movies.length > 0 && (
+        <Pagination
+          total={movies.length}
+          limit={limit}
+          page={page}
+          setPage={setPage}
+        />
+      )}
     </ListContainer>
   );
 };

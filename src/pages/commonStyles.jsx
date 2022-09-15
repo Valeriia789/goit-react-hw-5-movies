@@ -17,10 +17,10 @@ const ListItem = styled.li`
   border-radius: 10px;
   box-shadow: ${props => props.theme.shadows.blue};
 
-  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
-    background-color: ${props => props.theme.colors.primary};
+    background-color: ${props => props.theme.colors.blueOpacity};
     box-shadow: ${props => props.theme.shadows.pink};
   }
 `;

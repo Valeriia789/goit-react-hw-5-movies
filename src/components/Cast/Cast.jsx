@@ -7,7 +7,7 @@ import {
   CastList,
   ListItem,
   ItemInfoContainer,
-  Character,
+  CharacterContainer,
 } from './Cast.styled';
 const Cast = () => {
   const { movieId } = useParams();
@@ -39,9 +39,9 @@ const Cast = () => {
               <ItemInfoContainer>
                 <p>{cast.name}</p>
                 {cast.character && (
-                  <Character>
+                  <CharacterContainer>
                     Character: <p>{cast.character}</p>
-                  </Character>
+                  </CharacterContainer>
                 )}
               </ItemInfoContainer>
             </ListItem>
