@@ -9,6 +9,7 @@ import {
   ItemInfoContainer,
   CharacterContainer,
 } from './Cast.styled';
+
 const Cast = () => {
   const { movieId } = useParams();
   const [castInfo, setCastInfo] = useState([]);
@@ -18,7 +19,6 @@ const Cast = () => {
     fetchCast(Number(movieId)).then(setCastInfo);
   }, [movieId]);
 
-  console.log(castInfo);
   return (
     <CastContainer>
       {castInfo.length > 0 && (

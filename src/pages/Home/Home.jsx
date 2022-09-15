@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { fetchTrending } from '../../services';
+import Pagination from 'components/Pagination/Pagination';
 
 import {
   ListContainer,
@@ -14,18 +15,21 @@ import {
 const Home = () => {
   const location = useLocation();
   const [trending, setTrending] = useState([]);
+  const [page, setPage] = useState(1);
+  
   const imageURL = 'https://image.tmdb.org/t/p/w185';
 
   useEffect(() => {
-    fetchTrending().then(setTrending);
-  }, []);
+    fetchTrending(page).then(setTrending);
+  }, [page]);
+
+  console.log(page);
 
   return (
     <ListContainer>
       <h1>Trending</h1>
       <MoviesList>
-        {trending &&
-          trending.map(trendItem => (
+        {trending.map(trendItem => (
             <ListItem key={trendItem.id}>
               <MovieLink
                 to={`movies/${trendItem.id}`}
@@ -45,45 +49,14 @@ const Home = () => {
             </ListItem>
           ))}
       </MoviesList>
+      <Pagination
+          total={Number(200)}
+          limit={Number(20)}
+          page={page}
+          setPage={setPage}
+        />
     </ListContainer>
   );
 };
 
 export default Home;
-
-// "backdrop_sizes": [
-//   "w300",
-//   "w780",
-//   "w1280",
-//   "original"
-// ],
-// "logo_sizes": [
-//   "w45",
-//   "w92",
-//   "w154",
-//   "w185",
-//   "w300",
-//   "w500",
-//   "original"
-// ],
-// "poster_sizes": [
-//   "w92",
-//   "w154",
-//   "w185",
-//   "w342",
-//   "w500",
-//   "w780",
-//   "original"
-// ],
-// "profile_sizes": [
-//   "w45",
-//   "w185",
-//   "h632",
-//   "original"
-// ],
-// "still_sizes": [
-//   "w92",
-//   "w185",
-//   "w300",
-//   "original"
-// ]

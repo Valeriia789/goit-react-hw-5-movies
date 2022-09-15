@@ -1,12 +1,11 @@
-// import PropTypes from 'prop-types'
 import axios from 'axios';
 
 const BASE_URL = 'https://api.themoviedb.org/3';
 const API_KEY = 'bc2fa6fd786f6a0d750b3d3cba486c9b';
 
-const fetchTrending = async () => {
+const fetchTrending = async (page) => {
   const trendingRes = await axios
-    .get(`${BASE_URL}/trending/all/day?api_key=${API_KEY}`)
+    .get(`${BASE_URL}/trending/all/day?api_key=${API_KEY}&page=${page}`)
     .then(response => response.data);
 
   return trendingRes.results;

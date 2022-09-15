@@ -1,7 +1,6 @@
 import { useMemo } from 'react';
 import { useEffect, useState } from 'react';
 import { useSearchParams, useLocation } from 'react-router-dom';
-// import { toast } from 'react-toastify';
 
 import { fetchSearchMovies } from '../../services';
 import Searchbar from '../../components/Searchbar/Searchbar';
@@ -20,9 +19,7 @@ const Movies = () => {
   const location = useLocation();
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
-  const [limit] = useState(10);
   const [page, setPage] = useState(1);
-  const offset = (page - 1) * limit;
 
   const imageURL = 'https://image.tmdb.org/t/p/w185';
 
@@ -38,7 +35,9 @@ const Movies = () => {
       return;
     }
 
-    fetchSearchMovies({ query: filterParam, page }).then(setMovies);
+    setTimeout(() => {
+      fetchSearchMovies({ query: filterParam, page }).then(setMovies);
+    }, 200);
   }, [filterParam, page]);
 
   const visibleMovies = useMemo(() => {
@@ -49,14 +48,12 @@ const Movies = () => {
     );
   }, [filterParam, movies]);
 
-  console.log(visibleMovies);
-
   return (
     <ListContainer>
       <Searchbar value={filterParam} onChange={changeFilter} />
       {visibleMovies.length > 0 && (
         <MoviesList>
-          {movies.slice(offset, offset + limit).map(movie => (
+          {visibleMovies.map(movie => (
             <ListItem key={movie.id}>
               <MovieLink to={`${movie.id}`} state={{ from: location }}>
                 {movie.poster_path ? (
@@ -75,10 +72,10 @@ const Movies = () => {
         </MoviesList>
       )}
 
-      {movies.length > 0 && (
+      {visibleMovies.length > 0 && (
         <Pagination
-          total={movies.length}
-          limit={limit}
+          total={Number(100)}
+          limit={Number(20)}
           page={page}
           setPage={setPage}
         />
