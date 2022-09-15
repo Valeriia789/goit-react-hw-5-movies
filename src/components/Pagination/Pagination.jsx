@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Nav, Button } from './Pagination.styled';
 
 function Pagination({ total, limit, page, setPage }) {
@@ -29,5 +30,12 @@ function Pagination({ total, limit, page, setPage }) {
 }
 
 export default Pagination;
+
+Pagination.propTypes = {
+  total: PropTypes.number,
+  limit: PropTypes.number,
+  page: PropTypes.number,
+  setPage: PropTypes.func,
+};
 
 // https://codesandbox.io/s/react-pagination-qqrdf?from-embed=&file=/src/Posts.jsx
