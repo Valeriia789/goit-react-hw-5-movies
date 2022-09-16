@@ -1,13 +1,25 @@
 {
   "files": {
-    "main.css": "/goit-react-hw-5-movies/static/css/main.b5320759.css",
-    "main.js": "/goit-react-hw-5-movies/static/js/main.76dd10ca.js",
+    "main.css": "/goit-react-hw-5-movies/static/css/main.85f7c0ad.css",
+    "main.js": "/goit-react-hw-5-movies/static/js/main.a4a13d7f.js",
+    "static/js/544.eb23ae06.chunk.js": "/goit-react-hw-5-movies/static/js/544.eb23ae06.chunk.js",
+    "static/js/297.9eb4aec2.chunk.js": "/goit-react-hw-5-movies/static/js/297.9eb4aec2.chunk.js",
+    "static/js/279.e6af6fa5.chunk.js": "/goit-react-hw-5-movies/static/js/279.e6af6fa5.chunk.js",
+    "static/js/736.9decf0ce.chunk.js": "/goit-react-hw-5-movies/static/js/736.9decf0ce.chunk.js",
+    "static/js/387.85817119.chunk.js": "/goit-react-hw-5-movies/static/js/387.85817119.chunk.js",
+    "static/js/254.8e9f1132.chunk.js": "/goit-react-hw-5-movies/static/js/254.8e9f1132.chunk.js",
     "index.html": "/goit-react-hw-5-movies/index.html",
-    "main.b5320759.css.map": "/goit-react-hw-5-movies/static/css/main.b5320759.css.map",
-    "main.76dd10ca.js.map": "/goit-react-hw-5-movies/static/js/main.76dd10ca.js.map"
+    "main.85f7c0ad.css.map": "/goit-react-hw-5-movies/static/css/main.85f7c0ad.css.map",
+    "main.a4a13d7f.js.map": "/goit-react-hw-5-movies/static/js/main.a4a13d7f.js.map",
+    "544.eb23ae06.chunk.js.map": "/goit-react-hw-5-movies/static/js/544.eb23ae06.chunk.js.map",
+    "297.9eb4aec2.chunk.js.map": "/goit-react-hw-5-movies/static/js/297.9eb4aec2.chunk.js.map",
+    "279.e6af6fa5.chunk.js.map": "/goit-react-hw-5-movies/static/js/279.e6af6fa5.chunk.js.map",
+    "736.9decf0ce.chunk.js.map": "/goit-react-hw-5-movies/static/js/736.9decf0ce.chunk.js.map",
+    "387.85817119.chunk.js.map": "/goit-react-hw-5-movies/static/js/387.85817119.chunk.js.map",
+    "254.8e9f1132.chunk.js.map": "/goit-react-hw-5-movies/static/js/254.8e9f1132.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b5320759.css",
-    "static/js/main.76dd10ca.js"
+    "static/css/main.85f7c0ad.css",
+    "static/js/main.a4a13d7f.js"
   ]
 }
