@@ -21,6 +21,7 @@ const Cast = () => {
 
   return (
     <CastContainer>
+      {castInfo.length === 0 && <p>No information</p>}
       {castInfo.length > 0 && (
         <CastList>
           {castInfo.map(cast => (
