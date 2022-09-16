@@ -72,14 +72,13 @@ const Movies = () => {
         </MoviesList>
       )}
 
-      {visibleMovies.length > 0 && (
         <Pagination
           total={Number(100)}
           limit={Number(20)}
           page={page}
           setPage={setPage}
         />
-      )}
+
     </ListContainer>
   );
 };
