@@ -72,13 +72,12 @@ const Movies = () => {
         </MoviesList>
       )}
 
-        <Pagination
-          total={Number(100)}
-          limit={Number(20)}
-          page={page}
-          setPage={setPage}
-        />
-
+      <Pagination
+        total={Number(100)}
+        limit={Number(20)}
+        page={page}
+        setPage={setPage}
+      />
     </ListContainer>
   );
 };
